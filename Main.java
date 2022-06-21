@@ -10,24 +10,20 @@ public class Main {
             System.exit(1);
         }
         try {
-            FindMin findMin = new FindMin(path);
-            FindMax findMax = new FindMax(path);
+            FindMin findMinMax = new FindMinMax(path);
             FindAverage findAverage = new FindAverage(path);
             FindMedian findMedian = new FindMedian(path);
-            Thread t1 = new Thread(findMin);
-            Thread t2 = new Thread(findMax);
-            Thread t3 = new Thread(findAverage);
-            Thread t4 = new Thread(findMedian);
+            Thread t1 = new Thread(findMinMax);
+            Thread t2 = new Thread(findAverage);
+            Thread t3 = new Thread(findMedian);
             t1.start();
             t2.start();
             t3.start();
-            t4.start();
             t1.join();
             t2.join();
             t3.join();
-            t4.join();
-            System.out.println("Minimum is: " + findMin.getMin());
-            System.out.println("Maximum is: " + findMax.getMax());
+            System.out.println("Minimum is: " + findMinMax.getMin());
+            System.out.println("Maximum is: " + findMinMax.getMax());
             System.out.println("Average is: " + findAverage.getAverage());
             System.out.println("Median is: " + findMedian.getMedian());
 
